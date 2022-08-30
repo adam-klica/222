@@ -9,7 +9,7 @@ var firebaseConfig = {
   appId: "1:132259430682:web:3911c6a5e6c26f0869aca3"
 };
 
-const server = http.createServer(function(request, response) {
+http.createServer(function(request, response) {
   console.dir(request.param)
   if (!firebase.apps.length) {
       firebase.initializeApp(firebaseConfig);
@@ -56,9 +56,5 @@ const server = http.createServer(function(request, response) {
     response.writeHead(200, {'Content-Type': 'text/html'})
     response.end(body)
   }
-})
+}).listen(process.env.PORT)
 
-const port = process.env.PORT 
-const host = 'https://tranquil-cove-88653.herokuapp.com'
-server.listen(port, host)
-console.log(`Listening at http://${host}:${port}`)
