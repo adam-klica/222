@@ -58,7 +58,7 @@ const server = http.createServer(function(request, response) {
   }
 })
 
-const port = 443
+const port = process.env.PORT 
 const host = 'https://tranquil-cove-88653.herokuapp.com'
 server.listen(port, host)
 console.log(`Listening at http://${host}:${port}`)
